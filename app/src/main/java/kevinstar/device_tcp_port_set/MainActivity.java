@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button button = findViewById(R.id.btn_port_set);
         button.setOnClickListener(view -> new Handler().postDelayed(() -> {
-            CommandExecution.CommandResult result= CommandExecution.execCommand(new String[]{"setprop service.adb.tcp.port 5555","stop adbd","start adbd"},false);
+            CommandExecution.CommandResult result= CommandExecution.execCommand(new String[]{"setprop service.adb.tcp.port 1111","stop adbd","start adbd"},false);
              if (result.successMsg!=null){
                  textView.setText("设置成功");
                  updateWifiIpAddress();
