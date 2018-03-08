@@ -20,6 +20,14 @@ public class WifiUtil {
         String ip = intToIp(ipAdd);
         return ip;
     }
+    public static String getWifiName(Context context){
+        WifiManager wm = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        // 检查Wifi状态
+        if (!wm.isWifiEnabled())
+            wm.setWifiEnabled(true);
+        WifiInfo wi = wm.getConnectionInfo();
+        return wi.getSSID();
+    }
     public static String intToIp(int i) {
         return (i & 0xFF) + "." + ((i >> 8) & 0xFF) + "." + ((i >> 16) & 0xFF)
                 + "." + (i >> 24 & 0xFF);
